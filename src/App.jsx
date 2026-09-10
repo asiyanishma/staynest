@@ -29,7 +29,7 @@ export default function App() {
     const loadListings = async () => {
       try {
         const response = await fetch(
-          'http://localhost:5000/api/listings'
+          `${import.meta.env.VITE_API_URL}/api/listings`
         )
 
         const data = await response.json()
@@ -66,7 +66,7 @@ export default function App() {
 
     try {
       const response = await fetch(
-        'http://localhost:5000/api/bookings',
+        `${import.meta.env.VITE_API_URL}/api/bookings`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -193,7 +193,7 @@ export default function App() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/bookings/${bookingId}`,
+        `${import.meta.env.VITE_API_URL}/api/bookings/${bookingId}`,
         {
           method: 'DELETE',
 

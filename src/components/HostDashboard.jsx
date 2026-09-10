@@ -21,7 +21,7 @@ export default function HostDashboard({ onClose }) {
 
     try {
       const response = await fetch(
-        'http://localhost:5000/api/host/listings',
+        `${import.meta.env.VITE_API_URL}/api/host/listings`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -65,7 +65,7 @@ export default function HostDashboard({ onClose }) {
 
     try {
       const response = await fetch(
-        'http://localhost:5000/api/host/listings',
+        `${import.meta.env.VITE_API_URL}/api/host/listings`,
         {
           method: 'POST',
           headers: {
