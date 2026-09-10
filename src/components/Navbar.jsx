@@ -36,8 +36,8 @@ export default function Navbar({
 
     try {
       const endpoint = isSignup
-        ? 'http://localhost:5000/api/auth/signup'
-        : 'http://localhost:5000/api/auth/login'
+        ? `${import.meta.env.VITE_API_URL}/api/auth/signup`
+        : `${import.meta.env.VITE_API_URL}/api/auth/login`
 
       const body = isSignup
         ? { name, email, password }
@@ -80,6 +80,7 @@ export default function Navbar({
         }, 1000)
       }
     } catch (error) {
+      console.error('Authentication error:', error)
       setMessage('Cannot connect to StayNest server')
     } finally {
       setLoading(false)
