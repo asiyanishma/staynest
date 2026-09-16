@@ -288,23 +288,23 @@ StayNest uses MongoDB Atlas for cloud database storage.
 
 ## 📸 Screenshots
 
-Add screenshots of the application here.
-
 ### Home Page
 
-![StayNest Home Page](screenshots/home.png)
+![StayNest Home Page](home.png)
 
 ### Listing Details
 
-![StayNest Listing](screenshots/listing.png)
+![StayNest Listing 1](listing-1.png)
+
+![StayNest Listing 2](listing-2.png)
 
 ### My Bookings
 
-![StayNest Bookings](screenshots/bookings.png)
+![StayNest Bookings](bookings.png)
 
 ### Host Dashboard
 
-![StayNest Host Dashboard](screenshots/host-dashboard.png)
+![StayNest Host Dashboard](host-dashboard.png)
 
 > Create a `screenshots` folder in the repository and add your application screenshots before enabling these images.
 
