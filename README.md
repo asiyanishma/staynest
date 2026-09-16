@@ -1,15 +1,15 @@
 # StayNest 🏡
 
-A full-stack accommodation booking platform inspired by modern vacation-rental applications, built for discovering and booking stays across the UAE.
+**StayNest** is a full-stack accommodation booking platform for discovering, filtering, and booking stays across the UAE.
 
-StayNest allows users to browse accommodations, search and filter listings, authenticate securely, make bookings, and manage their reservations. Hosts can also access a dedicated dashboard to manage their listings.
+The application includes user authentication, accommodation listings, search and filtering, booking management, JWT-protected functionality, and a host dashboard. The frontend is built with React.js and Vite, while the backend uses Node.js, Express.js, and MongoDB.
 
 ## 🚀 Live Demo
 
 **Frontend:** https://staynest-iota-eight.vercel.app/
-**Backend:** `https://staynest-wrcs.onrender.com`
+**Backend:** https://staynest-wrcs.onrender.com
 
-> The backend may take a few seconds to respond after periods of inactivity because it is hosted on a free-tier service.
+> The backend is hosted on a free-tier service and may take a few seconds to respond after a period of inactivity.
 
 ---
 
@@ -23,21 +23,21 @@ StayNest allows users to browse accommodations, search and filter listings, auth
 * Search stays by destination
 * Filter listings by category
 * View detailed property information
-* Book available accommodations
+* Create bookings
 * View personal bookings
-* Cancel existing bookings
+* Cancel bookings
 
 ### 🏠 Host Features
 
 * Dedicated Host Dashboard
-* View and manage accommodation listings
-* Add accommodation details
-* Manage property information and pricing
+* View accommodation listings
+* Manage property information
+* Manage accommodation details and pricing
 
 ### 🔎 Search & Discovery
 
 * Destination-based search
-* Category filtering
+* Category-based filtering
 * UAE-focused destinations including:
 
   * Dubai
@@ -45,7 +45,7 @@ StayNest allows users to browse accommodations, search and filter listings, auth
   * Fujairah
   * Ras Al Khaimah
   * Al Ain
-* Categories such as:
+* Accommodation categories including:
 
   * Beachfront
   * Cabins
@@ -58,11 +58,13 @@ StayNest allows users to browse accommodations, search and filter listings, auth
 ### 🎨 User Interface
 
 * Responsive React interface
-* Reusable components
-* Modern accommodation-card layout
+* Reusable React components
 * Responsive navigation
-* Booking and listing modals
-* Clean, user-friendly design
+* Accommodation listing cards
+* Listing detail modal
+* Booking interface
+* Host dashboard
+* Clean and responsive layout
 
 ---
 
@@ -73,9 +75,9 @@ StayNest allows users to browse accommodations, search and filter listings, auth
 * React.js
 * JavaScript
 * Vite
-* Bootstrap / CSS
-* React Components
-* REST API Integration
+* Tailwind CSS
+* Bootstrap
+* REST API integration
 
 ### Backend
 
@@ -98,41 +100,43 @@ StayNest allows users to browse accommodations, search and filter listings, auth
 
 ---
 
-## 🏗️ Project Architecture
+## 🏗️ Project Structure
 
-```text
-StayNest
+```text id="z2w1j4"
+StayNest/
 │
-├── client/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── Navbar
-│   │   │   ├── ListingCard
-│   │   │   ├── ListingModal
-│   │   │   ├── FilterChips
-│   │   │   ├── MyBookings
-│   │   │   └── HostDashboard
-│   │   │
-│   │   ├── App.jsx
-│   │   └── main.jsx
+├── src/
+│   ├── components/
+│   │   ├── Navbar
+│   │   ├── ListingCard
+│   │   ├── ListingModal
+│   │   ├── FilterChips
+│   │   ├── MyBookings
+│   │   └── HostDashboard
 │   │
-│   └── package.json
+│   ├── App.jsx
+│   └── main.jsx
 │
 ├── server/
 │   ├── models/
 │   ├── routes/
 │   ├── middleware/
-│   ├── server.js
-│   └── package.json
+│   └── server.js
 │
+├── index.html
+├── package.json
+├── package-lock.json
+├── vite.config.js
+├── tailwind.config.js
+├── postcss.config.js
 └── README.md
 ```
 
 ---
 
-## 🔄 Main User Flow
+## 🔄 Application Flow
 
-```text
+```text id="d4g7b2"
 User
  │
  ▼
@@ -140,13 +144,13 @@ Browse StayNest
  │
  ├── Search by destination
  │
- ├── Filter by category
+ └── Filter by category
  │
  ▼
-View Listing
+View Accommodation
  │
  ▼
-Authenticate
+Login / Register
  │
  ▼
 Create Booking
@@ -161,100 +165,118 @@ My Bookings
 
 ## 🔐 Authentication
 
-StayNest uses **JSON Web Tokens (JWT)** to authenticate users.
+StayNest uses **JSON Web Tokens (JWT)** for user authentication.
 
-Authenticated requests include the JWT in the request headers:
+After authentication, the frontend stores the user's token and sends it with protected API requests using the authorization header:
 
-```text
+```text id="j0u5zq"
 Authorization: Bearer <token>
 ```
 
-Protected functionality includes booking management and host-related operations.
+Protected functionality includes booking management and authenticated host operations.
 
 ---
 
 ## 🔌 API Overview
 
-The backend exposes RESTful API endpoints for the application's core functionality.
+The backend provides RESTful APIs for accommodation listings and booking management.
 
-| Method                   | Endpoint                   | Purpose                         |
-| ------------------------ | -------------------------- | ------------------------------- |
-| GET                      | `/api/listings`            | Retrieve accommodation listings |
-| POST                     | `/api/bookings`            | Create a booking                |
-| GET                      | `/api/bookings`            | Retrieve user bookings          |
-| DELETE                   | `/api/bookings/:bookingId` | Cancel a booking                |
-| Authentication endpoints | `/api/...`                 | User authentication             |
-
-> API endpoints may evolve as the project is further developed.
+| Method | Endpoint                   | Purpose                         |
+| ------ | -------------------------- | ------------------------------- |
+| GET    | `/api/listings`            | Retrieve accommodation listings |
+| POST   | `/api/bookings`            | Create a booking                |
+| GET    | `/api/bookings`            | Retrieve user bookings          |
+| DELETE | `/api/bookings/:bookingId` | Cancel a booking                |
 
 ---
 
 ## ⚙️ Getting Started
 
+### Prerequisites
+
+Make sure you have the following installed:
+
+* Node.js
+* npm
+* MongoDB Atlas account
+
 ### 1. Clone the repository
 
-```bash
+```bash id="e6zq2p"
 git clone https://github.com/asiyanishma/staynest.git
 cd staynest
 ```
 
 ### 2. Install frontend dependencies
 
-```bash
-cd client
+From the project root:
+
+```bash id="p9x5l3"
 npm install
 ```
 
-### 3. Configure frontend environment variables
+### 3. Configure the frontend
 
-Create a `.env` file inside the frontend directory:
+Create a `.env` file in the project root:
 
-```env
+```env id="k0p6y1"
 VITE_API_URL=http://localhost:5000
 ```
 
-Replace the URL with your deployed backend URL when using the production environment.
+For the deployed application:
+
+```env id="a8c3w7"
+VITE_API_URL=https://staynest-wrcs.onrender.com
+```
+
+> Do not commit `.env` files containing private credentials or secrets to GitHub.
 
 ### 4. Start the frontend
 
-```bash
+From the project root:
+
+```bash id="h3q9vz"
 npm run dev
 ```
 
-The frontend will normally be available at:
+The frontend will normally run at:
 
-```text
+```text id="f1m6qs"
 http://localhost:5173
 ```
 
 ### 5. Install backend dependencies
 
-Open another terminal:
+Open another terminal and navigate to the server:
 
-```bash
+```bash id="u2n7ka"
 cd server
 npm install
 ```
 
-### 6. Configure backend environment variables
+### 6. Configure the backend
 
-Create a `.env` file inside the server directory:
+Create a `.env` file inside the `server` directory with your MongoDB connection and authentication configuration:
 
-```env
+```env id="r5d8xm"
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
 PORT=5000
 ```
 
+> Keep backend secrets private and never commit them to GitHub.
+
 ### 7. Start the backend
 
-```bash
+From the `server` directory:
+
+```bash id="q7v1bn"
 node server.js
 ```
 
 The backend will run at:
 
-```text
+```text id="c4m8ys"
 http://localhost:5000
 ```
 
@@ -264,21 +286,19 @@ http://localhost:5000
 
 ### Frontend — Vercel
 
-The React frontend can be deployed using Vercel.
+The React frontend is deployed using Vercel.
 
-Set the production environment variable:
+**Live application:**
+https://staynest-iota-eight.vercel.app/
 
-```env
-VITE_API_URL=https://staynest-wrcs.onrender.com
-```
+The production frontend connects to the deployed backend through the `VITE_API_URL` environment variable.
 
 ### Backend — Render
 
-The Express backend is deployed on Render:
+The Express backend is deployed using Render.
 
-```text
+**Backend:**
 https://staynest-wrcs.onrender.com
-```
 
 ### Database — MongoDB Atlas
 
@@ -306,54 +326,47 @@ StayNest uses MongoDB Atlas for cloud database storage.
 
 ![StayNest Host Dashboard](host-dashboard.png)
 
-> Create a `screenshots` folder in the repository and add your application screenshots before enabling these images.
-
 ---
 
-## 📌 Key Learning Outcomes
+## 💡 Key Highlights
 
-Through this project, I worked with:
-
-* Building reusable React components
-* Managing application state in React
-* Connecting a React frontend with an Express backend
-* Designing and consuming RESTful APIs
-* MongoDB and Mongoose data modeling
-* JWT-based authentication
-* Protected API routes
-* Booking and reservation workflows
-* Search and filtering functionality
-* Environment variables and API configuration
-* Deploying full-stack applications
-* Connecting a deployed frontend with a cloud backend
+* Built a full-stack accommodation booking platform using React.js, Node.js, Express.js, and MongoDB
+* Developed reusable React components for listings, navigation, filtering, bookings, and host management
+* Integrated the React frontend with an Express.js REST API
+* Implemented MongoDB data persistence using Mongoose
+* Added JWT-based authentication and protected API functionality
+* Implemented accommodation search and category filtering
+* Developed booking creation, viewing, and cancellation workflows
+* Connected the application to MongoDB Atlas
+* Deployed the frontend and backend separately using Vercel and Render
 
 ---
 
 ## 🔮 Future Improvements
 
 * Real-time booking availability
+* Date-based availability checking
 * Online payment integration
-* Image upload and cloud storage
-* Advanced date-based availability
-* Host listing creation and editing
+* Cloud image upload and storage
 * Reviews and ratings
 * Wishlist functionality
-* Improved validation and error handling
-* Real-time notifications
+* Improved form validation
 * Automated testing
+* Real-time notifications
 
 ---
 
 ## 👩‍💻 Author
 
 **Asiya Nishma**
+
 Full-Stack Web Development
 
-* GitHub: [github.com/asiyanishma](https://github.com/asiyanishma)
-* LinkedIn: [linkedin.com/in/asiya-nishma](https://www.linkedin.com/in/asiya-nishma)
+* GitHub: https://github.com/asiyanishma
+* LinkedIn: https://www.linkedin.com/in/asiya-nishma
 
 ---
 
 ## 📄 License
 
-This project was created for educational and portfolio purposes.
+This project was created as a portfolio project.
