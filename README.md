@@ -6,7 +6,7 @@ StayNest allows users to browse accommodations, search and filter listings, auth
 
 ## 🚀 Live Demo
 
-**Frontend:** Add your Vercel URL here
+**Frontend:** https://staynest-iota-eight.vercel.app/
 **Backend:** `https://staynest-wrcs.onrender.com`
 
 > The backend may take a few seconds to respond after periods of inactivity because it is hosted on a free-tier service.
